@@ -1,6 +1,6 @@
 # AirBnB clone - The console
 
-![AirBnB Logo]()
+![AirBnB Logo](https://github.com/Youssef-Hassane/AirBnB_clone/blob/master/images/65f4a1dd9c51265f49d0.png)
 
 This repository provides the backend for the AirBnB clone project, 
 interfacing it with a console application using the cmd module in Python.
