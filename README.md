@@ -6,7 +6,7 @@ The console allows for the user to interact with the system in a more human-frie
 
 
 
-Tasks:
+## Tasks:
 ```
 0. README, AUTHORS: 					COMPLETED ✅
 1. Be pycodestyle compliant: 			Completed ✅
