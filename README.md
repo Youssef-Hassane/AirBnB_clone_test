@@ -8,7 +8,7 @@ The console allows for the user to interact with the system in a more human-frie
 
 ## Tasks:
 ```
-0. README, AUTHORS:	COMPLETED ✅
+0. README, AUTHORS:		COMPLETED ✅
 1. Be pycodestyle compliant: 			Completed ✅
 2. Unittests: 							NOT STARTED ❌
 3. BaseModel: 							Completed ✅
