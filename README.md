@@ -1,5 +1,7 @@
 # AirBnB clone - The console
 
+![AirBnB Logo]()
+
 This repository provides the backend for the AirBnB clone project, 
 interfacing it with a console application using the cmd module in Python.
 The console allows for the user to interact with the system in a more human-friendly way.
