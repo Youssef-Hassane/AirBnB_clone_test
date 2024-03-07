@@ -15,7 +15,7 @@ The console allows for the user to interact with the system in a more human-frie
 2. Unittests: 				NOT STARTED ❌		(Mandatory)
 3. BaseModel: 				COMPLETED ✅		(Mandatory)
 4. Create BaseModel from dictionary:	COMPLETED ✅		(Mandatory)
-5. Store first object: 			IN PROGRESS BY ALMASY 👨🏻‍💻		(Mandatory)
+5. Store first object: 			IN PROGRESS BY ALMASY 👨🏻‍💻	(Mandatory)
 6. Console 0.0.1:			NOT STARTED ❌		(Mandatory)
 7. Console 0.1:				NOT STARTED ❌		(Mandatory)
 8. First User:				NOT STARTED ❌		(Mandatory)
