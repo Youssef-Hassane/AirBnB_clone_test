@@ -14,8 +14,8 @@ The console allows for the user to interact with the system in a more human-frie
 1. Be pycodestyle compliant: 		Completed ✅
 2. Unittests: 				NOT STARTED ❌
 3. BaseModel: 				Completed ✅
-4. Create BaseModel from dictionary:	IN PROGRESS BY ALMASY 👨🏻‍💻
-5. Store first object: 			NOT STARTED ❌
+4. Create BaseModel from dictionary:	Completed ✅
+5. Store first object: 			IN PROGRESS BY ALMASY 👨🏻‍💻
 6. Console 0.0.1:			NOT STARTED ❌
 7. Console 0.1:				NOT STARTED ❌
 8. First User:				NOT STARTED ❌

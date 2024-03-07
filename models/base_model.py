@@ -15,12 +15,20 @@ class BaseModel():
 
     def __init__(self, *args, **kwargs):
         """	Initialise model """
-        self.id = str(UNIQUE_ID())
-        self.created_at = TIME.now()
-        self.updated_at = TIME.now()
+
+        if kwargs:
+            for key, value in kwargs.items():
+                if key != '__class__':
+                    if key == 'created_at' or key == 'updated_at':
+                        value = TIME.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                    setattr(self, key, value)
+        else:
+            self.id = str(UNIQUE_ID())
+            self.created_at = TIME.now()
+            self.updated_at = TIME.now()
 
     def __str__(self):
-        """	Return string representation of model """
+        """ Return string representation of model """
         return "[{}] ({}) {}".format(
             self.__class__.__name__, self.id, self.__dict__)
 
@@ -29,7 +37,7 @@ class BaseModel():
         self.updated_at = TIME.now()
 
     def to_dict(self):
-        """	Convert model to dictionary """
+        """ Convert model to dictionary """
         obj_dict = self.__dict__.copy()
         obj_dict['__class__'] = self.__class__.__name__
         obj_dict['created_at'] = self.created_at.isoformat()
