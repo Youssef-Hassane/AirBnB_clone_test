@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import json
-
+from os.path import isfile
 
 class FileStorage:
     """ FileStorage class """
@@ -28,12 +28,27 @@ class FileStorage:
         serialized_objs = {}
         for key, obj in self.__objects.items():
             serialized_objs[key] = obj.to_dict()
-        with open(self.__file_path, 'w') as f:
-            json.dump(serialized_objs, f)
+        with open(self.__file_path, 'w') as file:
+            json.dump(serialized_objs, file)
 
     def reload(self):
+        from models.base_model import BaseModel
+        
         """
         Public instance method that deserializes the JSON file to __objects
-        (only if the JSON file (__file_path) exists ; otherwise, do nothing. If the file doesn’t exist, no exception should be raised)
+        (only if the JSON file (__file_path) exists ; otherwise, do nothing.
+        If the file doesn’t exist, no exception should be raised)
         """
+        if not isfile(FileStorage.__file_path):
+            return
+        with open(FileStorage.__file_path, "r") as file:
+            obj_dict = json.load(file)
+            classes = {
+                "BaseModel": BaseModel
+            }
+            obj_dict = {
+                key: classes[value["__class__"]](**value)
+                for key, value in obj_dict.items()
+            }
+            FileStorage.__objects = obj_dict
 

@@ -5,6 +5,7 @@ Contains an id, created and updated time.
 """
 from uuid import uuid4 as UNIQUE_ID
 from datetime import datetime as TIME
+from models import storage
 
 
 class BaseModel():
@@ -26,6 +27,9 @@ class BaseModel():
             self.id = str(UNIQUE_ID())
             self.created_at = TIME.now()
             self.updated_at = TIME.now()
+            # if it’s a new instance (not from a dictionary representation)
+            # add a call to the method new(self) on storage
+            storage.new(self)
 
     def __str__(self):
         """ Return string representation of model """
@@ -35,6 +39,7 @@ class BaseModel():
     def save(self):
         """	Save model changes """
         self.updated_at = TIME.now()
+        storage.save()  # call save(self) method of storage
 
     def to_dict(self):
         """ Convert model to dictionary """
