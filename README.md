@@ -21,13 +21,13 @@ The console allows for the user to interact with the system in a more human-frie
 8. First User:				NOT STARTED ❌		(Ⓜ️andatory)
 9. More classes:			NOT STARTED ❌		(Ⓜ️andatory)
 10. Console 1.0:			NOT STARTED ❌		(Ⓜ️andatory)
-11. All instances by class name:	NOT STARTED ❌		(Advanced 🦾🚀)
-12. Count instances: 			NOT STARTED ❌		(Advanced 🦾🚀)
-13. Show: 				NOT STARTED ❌		(Advanced 🦾🚀)
-15. Update: 				NOT STARTED ❌		(Advanced 🦾🚀)
-14. Destroy: 				NOT STARTED ❌		(Advanced 🦾🚀)
-16. Update from dictionary: 		NOT STARTED ❌		(Advanced 🦾🚀)
-17. Unittests for the Console: 		NOT STARTED ❌		(Advanced 🦾🚀)
+11. All instances by class name:	NOT STARTED ❌		(🦾 Advanced 🚀)
+12. Count instances: 			NOT STARTED ❌		(🦾 Advanced 🚀)
+13. Show: 				NOT STARTED ❌		(🦾 Advanced 🚀)
+15. Update: 				NOT STARTED ❌		(🦾 Advanced 🚀)
+14. Destroy: 				NOT STARTED ❌		(🦾 Advanced 🚀)
+16. Update from dictionary: 		NOT STARTED ❌		(🦾 Advanced 🚀)
+17. Unittests for the Console: 		NOT STARTED ❌		(🦾 Advanced 🚀)
 ```
 
 ## Developers:
