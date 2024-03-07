@@ -24,8 +24,8 @@ The console allows for the user to interact with the system in a more human-frie
 🚀 11. All instances by class name:		NOT STARTED ❌
 🚀 12. Count instances: 			NOT STARTED ❌
 🚀 13. Show: 					NOT STARTED ❌
-🚀 15. Update: 					NOT STARTED ❌
 🚀 14. Destroy: 				NOT STARTED ❌
+🚀 15. Update: 					NOT STARTED ❌
 🚀 16. Update from dictionary: 			NOT STARTED ❌
 🚀 17. Unittests for the Console: 		NOT STARTED ❌
 ```
