@@ -10,24 +10,24 @@ The console allows for the user to interact with the system in a more human-frie
 
 ## Tasks:
 ```
-0. README, AUTHORS:			COMPLETED ✅		(Ⓜ️andatory)
-1. Be pycodestyle compliant: 		COMPLETED ✅		(Ⓜ️andatory)
-2. Unittests: 				NOT STARTED ❌		(Ⓜ️andatory)
-3. BaseModel: 				COMPLETED ✅		(Ⓜ️andatory)
-4. Create BaseModel from dictionary:	COMPLETED ✅		(Ⓜ️andatory)
-5. Store first object: 			IN PROGRESS BY ALMASY 👨🏻‍💻(Ⓜ️andatory)
-6. Console 0.0.1:			NOT STARTED ❌		(Ⓜ️andatory)
-7. Console 0.1:				NOT STARTED ❌		(Ⓜ️andatory)
-8. First User:				NOT STARTED ❌		(Ⓜ️andatory)
-9. More classes:			NOT STARTED ❌		(Ⓜ️andatory)
-10. Console 1.0:			NOT STARTED ❌		(Ⓜ️andatory)
-11. All instances by class name:	NOT STARTED ❌		(🦾 Advanced 🚀)
-12. Count instances: 			NOT STARTED ❌		(🦾 Advanced 🚀)
-13. Show: 				NOT STARTED ❌		(🦾 Advanced 🚀)
-15. Update: 				NOT STARTED ❌		(🦾 Advanced 🚀)
-14. Destroy: 				NOT STARTED ❌		(🦾 Advanced 🚀)
-16. Update from dictionary: 		NOT STARTED ❌		(🦾 Advanced 🚀)
-17. Unittests for the Console: 		NOT STARTED ❌		(🦾 Advanced 🚀)
+Ⓜ️ 0. README, AUTHORS:			COMPLETED ✅		
+Ⓜ️ 1. Be pycodestyle compliant: 		COMPLETED ✅		
+Ⓜ️ 2. Unittests: 				NOT STARTED ❌		
+Ⓜ️ 3. BaseModel: 				COMPLETED ✅		
+Ⓜ️ 4. Create BaseModel from dictionary:	COMPLETED ✅		
+Ⓜ️ 5. Store first object: 			IN PROGRESS BY ALMASY 👨🏻‍💻
+Ⓜ️ 6. Console 0.0.1:			NOT STARTED ❌		
+Ⓜ️ 7. Console 0.1:				NOT STARTED ❌		
+Ⓜ️ 8. First User:				NOT STARTED ❌		
+Ⓜ️ 9. More classes:			NOT STARTED ❌		
+Ⓜ️ 10. Console 1.0:			NOT STARTED ❌		
+🦾🚀 11. All instances by class name:	NOT STARTED ❌
+🦾🚀 12. Count instances: 			NOT STARTED ❌
+🦾🚀 13. Show: 				NOT STARTED ❌
+🦾🚀 15. Update: 				NOT STARTED ❌
+🦾🚀 14. Destroy: 				NOT STARTED ❌
+🦾🚀 16. Update from dictionary: 		NOT STARTED ❌
+🦾🚀 17. Unittests for the Console: 		NOT STARTED ❌
 ```
 
 ## Developers:
