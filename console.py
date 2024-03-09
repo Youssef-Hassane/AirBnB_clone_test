@@ -114,6 +114,47 @@ class HBNBCommand(cmd.Cmd):
         del storage.all()[key]
         storage.save()
 
+    def do_all(self, arg):
+        """
+        all: Prints all string representation of all instances
+        based or not on the class name.
+        Ex: $ all BaseModel or $ all.
+            - The printed result must be a list
+              of strings (like the example below)
+            - If the class name doesn’t exist:
+                print ** class doesn't exist ** (ex: $ all MyModel)
+        """
+        if (arg is None) or (arg == ""):
+            # Retrieves all instances stored in the storage object
+            # Iterates over the values of the dictionary returned
+            # by storage.all()
+            # Converts each instance to a string representation
+            # using str(obj)
+            # Adds the string representation of each instance to
+            # the instances list
+            # instances will contain string representations of all
+            #   instances stored in the storage object
+            instances = [str(obj) for obj in storage.all().values()]
+        else:
+            if arg.split()[0] not in HBNBCommand.classes:
+                print("** class doesn't exist **")
+                return
+            # Retrieves all instances stored in the storage object.
+            # Uses storage.all().items() to get key-value pairs
+            # (likely containing unique identifiers for the instances).
+            # Checks if the class name of each instance matches the
+            # class name provided as arg.
+            # If the class name matches, converts the instance to a
+            # string representation using str(obj).
+            # Adds the string representation of each matching
+            # instance to the instances list.
+            instances = [
+                str(obj)
+                for key, obj in storage.all().items()
+                if key.split('.')[0] == arg.split()[0]
+            ]
+        print(instances)
+
 
 
 
