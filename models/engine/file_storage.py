@@ -37,19 +37,29 @@ class FileStorage:
     def reload(self):
         from models.base_model import BaseModel
         from models.user import User
-
+        from models.state import State
+        from models.city import City
+        from models.amenity import Amenity
+        from models.place import Place
+        from models.review import Review
         """
         Public instance method that deserializes the JSON file to __objects
         (only if the JSON file (__file_path) exists ; otherwise, do nothing.
         If the file doesn’t exist, no exception should be raised)
         """
+        
         if not isfile(FileStorage.__file_path):
             return
         with open(FileStorage.__file_path, "r") as file:
             obj_dict = json.load(file)
             classes = {
                 "BaseModel": BaseModel,
-                "User": User
+                "User": User,
+                "State": State,
+                "City": City,
+                "Amenity": Amenity,
+                "Place": Place,
+                "Review": Review,
             }
             obj_dict = {
                 key: classes[value["__class__"]](**value)

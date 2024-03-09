@@ -9,7 +9,10 @@ from models.user import User
 class HBNBCommand(cmd.Cmd):
     """HBNBCommand Class"""
 
-    classes = ["BaseModel", "User"]
+    classes = [
+        "BaseModel", "User", "State",
+        "City", "Amenity", "Place", "Review"
+    ]
 
     prompt = "(hbnb) "
 
