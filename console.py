@@ -9,6 +9,7 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
+import re as regularExpression
 
 
 class HBNBCommand(cmd.Cmd):
@@ -20,6 +21,8 @@ class HBNBCommand(cmd.Cmd):
     ]
 
     prompt = "(hbnb) "
+
+    
 
     def do_quit(self, arg):
         """
@@ -124,45 +127,19 @@ class HBNBCommand(cmd.Cmd):
         storage.save()
 
     def do_all(self, arg):
+        """Prints all string representation of all instances.
         """
-        all: Prints all string representation of all instances
-        based or not on the class name.
-        Ex: $ all BaseModel or $ all.
-            - The printed result must be a list
-              of strings (like the example below)
-            - If the class name doesn’t exist:
-                print ** class doesn't exist ** (ex: $ all MyModel)
-        """
-        if (arg is None) or (arg == ""):
-            # Retrieves all instances stored in the storage object
-            # Iterates over the values of the dictionary returned
-            # by storage.all()
-            # Converts each instance to a string representation
-            # using str(obj)
-            # Adds the string representation of each instance to
-            # the instances list
-            # instances will contain string representations of all
-            #   instances stored in the storage object
-            instances = [str(obj) for obj in storage.all().values()]
-        else:
-            if arg.split()[0] not in HBNBCommand.classes:
+        if arg != "":
+            words = arg.split(' ')
+            if words[0] not in HBNBCommand.classes:
                 print("** class doesn't exist **")
-                return
-            # Retrieves all instances stored in the storage object.
-            # Uses storage.all().items() to get key-value pairs
-            # (likely containing unique identifiers for the instances).
-            # Checks if the class name of each instance matches the
-            # class name provided as arg.
-            # If the class name matches, converts the instance to a
-            # string representation using str(obj).
-            # Adds the string representation of each matching
-            # instance to the instances list.
-            instances = [
-                str(obj)
-                for key, obj in storage.all().items()
-                if key.split('.')[0] == arg.split()[0]
-            ]
-        print(instances)
+            else:
+                nl = [str(obj) for key, obj in storage.all().items()
+                      if type(obj).__name__ == words[0]]
+                print(nl)
+        else:
+            new_list = [str(obj) for key, obj in storage.all().items()]
+            print(new_list)
 
     def do_update(self, arg):
         """
@@ -199,6 +176,34 @@ class HBNBCommand(cmd.Cmd):
         setattr(instance, name_of_the_attribute,
                 new_value_for_the_attribute.strip('"'))
         instance.save()
+    
+    def precmd(self, user_input):
+        """Pre-command hook to handle special commands
+        Args:
+            user_input (str): input from user
+        Returns:
+            str: modified input if special command,
+            otherwise original input
+        """
+        if not isinstance(user_input, str):
+            return user_input
+        input = regularExpression.match("(.*)[.](.*)[(](.*)[)]", user_input)
+
+        if not input:
+            # Return original input if no special command
+            return user_input
+        else:
+            class_name = input.group(1)
+            command_name = input.group(2)
+            args = input.group(3)
+            # Handle dictionary arguments
+            if "{" in args and "}" in args:
+                args = \
+                    args.replace(", ", " $from_dict$ ", 1).replace('"', "", 2)
+            else:
+                args = args.replace(", ", " ").replace('"', "", 2)
+            # Modify and return input
+            return "{} {} {}".format(command_name, class_name, args)
 
 
 if __name__ == '__main__':
