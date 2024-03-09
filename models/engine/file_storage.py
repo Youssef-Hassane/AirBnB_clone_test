@@ -2,26 +2,29 @@
 import json
 from os.path import isfile
 
+
 class FileStorage:
     """ FileStorage class """
-
 
     # Private Class Attributes
     __file_path = "file.json"
     __objects = {}
-    
+
     # Public Instance Methods
     def all(self):
         """
         Public instance methods that returns the dictionary __objects
         """
         return FileStorage.__objects
-    
+
     def new(self, obj):
         """
-        Public instance methods that sets in __objects the obj with key <obj class name>.id
+        Public instance methods that sets in
+        __objects the obj with key <obj class name>.id
         """
-        FileStorage.__objects["{}.{}".format(obj.__class__.__name__, obj.id)] = obj
+        FileStorage.__objects[
+            "{}.{}".format(obj.__class__.__name__, obj.id)
+        ] = obj
 
     def save(self):
         """Serializes __objects to the JSON file"""
@@ -34,7 +37,7 @@ class FileStorage:
     def reload(self):
         from models.base_model import BaseModel
         from models.user import User
-        
+
         """
         Public instance method that deserializes the JSON file to __objects
         (only if the JSON file (__file_path) exists ; otherwise, do nothing.
@@ -53,4 +56,3 @@ class FileStorage:
                 for key, value in obj_dict.items()
             }
             FileStorage.__objects = obj_dict
-
