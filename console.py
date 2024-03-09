@@ -22,8 +22,6 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = "(hbnb) "
 
-    
-
     def do_quit(self, arg):
         """
         Quit command to exit the program
@@ -197,7 +195,7 @@ class HBNBCommand(cmd.Cmd):
             command_name = input.group(2)
             args = input.group(3)
             # Handle dictionary arguments
-            if "{" in args and "}" in args:
+            if ("{" in args) and ("}" in args):
                 args = \
                     args.replace(", ", " $from_dict$ ", 1).replace('"', "", 2)
             else:
