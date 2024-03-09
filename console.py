@@ -174,7 +174,7 @@ class HBNBCommand(cmd.Cmd):
         setattr(instance, name_of_the_attribute,
                 new_value_for_the_attribute.strip('"'))
         instance.save()
-    
+
     def precmd(self, user_input):
         """Pre-command hook to handle special commands
         Args:
@@ -202,6 +202,23 @@ class HBNBCommand(cmd.Cmd):
                 args = args.replace(", ", " ").replace('"', "", 2)
             # Modify and return input
             return "{} {} {}".format(command_name, class_name, args)
+
+    def do_count(self, arg):
+        """
+        Retrieves the number of instances of a class
+        """
+        if not arg:
+            print("** class name missing **")
+            return
+
+        class_name = arg.split()[0]
+        if class_name not in HBNBCommand.classes:
+            print("** class doesn't exist **")
+            return
+
+        count = sum(1 for obj in storage.all().values()
+                    if type(obj).__name__ == class_name)
+        print(count)
 
 
 if __name__ == '__main__':
