@@ -35,6 +35,11 @@ class HBNBCommand(cmd.Cmd):
         print()
         return True
 
+    def emptyline(self):
+        """an empty line + ENTER shouldn’t execute anything
+        """
+        pass
+
     def do_create(self, arg):
         """
         Creates a new instance of BaseModel, saves it (to the JSON file) and
@@ -219,6 +224,8 @@ class HBNBCommand(cmd.Cmd):
         count = sum(1 for obj in storage.all().values()
                     if type(obj).__name__ == class_name)
         print(count)
+    
+
 
 
 if __name__ == '__main__':
