@@ -1,15 +1,6 @@
 #!/usr/bin/python3
-"""Defines unittests for console.py.
-
-Unittest classes:
-    TestHBNBCommand_prompting
-    TestHBNBCommand_help
-    TestHBNBCommand_exit
-    TestHBNBCommand_create
-    TestHBNBCommand_show
-    TestHBNBCommand_all
-    TestHBNBCommand_destroy
-    TestHBNBCommand_update
+"""
+Defines unittests for console.py.
 """
 import os
 import sys
@@ -619,6 +610,68 @@ class TestHBNBCommand_count(unittest.TestCase):
             os.rename("tmp", "file.json")
         except IOError:
             pass
+
+
+class TestConsole(unittest.TestCase):
+    
+    def setUp(self):
+        self.console = HBNBCommand()
+
+    def tearDown(self):
+        self.console = None
+
+    def test_create_command(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            self.console.onecmd("create BaseModel")
+            output = f.getvalue().strip()
+            self.assertTrue(len(output) == 36)  # Assuming UUID length is 36 characters
+
+    def test_show_command(self):
+        # Add test case for 'show' command
+        with patch('sys.stdout', new=StringIO()) as f:
+            self.console.onecmd("create BaseModel")
+            output = f.getvalue().strip()  # Get the ID of the created object
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            self.console.onecmd(f"show BaseModel {output}")
+            self.assertIn(output, f.getvalue())
+
+    def test_destroy_command(self):
+        # Add test case for 'destroy' command
+        with patch('sys.stdout', new=StringIO()) as f:
+            self.console.onecmd("create BaseModel")
+            output = f.getvalue().strip()  # Get the ID of the created object
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            self.console.onecmd(f"destroy BaseModel {output}")
+
+            # Now try to show the destroyed object, it should not exist
+            self.console.onecmd(f"show BaseModel {output}")
+            self.assertIn("** no instance found **", f.getvalue())
+
+    def test_all_command(self):
+        # Add test case for 'all' command
+        with patch('sys.stdout', new=StringIO()) as f:
+            self.console.onecmd("create BaseModel")
+            output = f.getvalue().strip()  # Get the ID of the created object
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            self.console.onecmd("all")
+            self.assertIn(output, f.getvalue())
+
+    def test_update_command(self):
+        # Add test case for 'update' command
+        with patch('sys.stdout', new=StringIO()) as f:
+            self.console.onecmd("create BaseModel")
+            output = f.getvalue().strip()  # Get the ID of the created object
+
+
+    def test_count_command(self):
+        # Add test case for 'count' command
+        with patch('sys.stdout', new=StringIO()) as f:
+            self.console.onecmd("create BaseModel")
+            output = f.getvalue().strip()  # Get the ID of the created object
+
 
 
 if __name__ == "__main__":
