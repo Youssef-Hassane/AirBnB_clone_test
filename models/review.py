@@ -7,7 +7,7 @@ class Review(BaseModel):
     """
     Review class that inherits from BaseModel
     """
-	# Public class attributes
+    # Public class attributes
     place_id = ""
     user_id = ""
     text = ""

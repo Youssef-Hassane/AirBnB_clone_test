@@ -7,6 +7,6 @@ class City(BaseModel):
     """
     City class that inherits from BaseModel
     """
-	# Public class attributes
+    # Public class attributes
     state_id = ""
     name = ""

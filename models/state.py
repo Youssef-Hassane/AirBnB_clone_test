@@ -7,5 +7,5 @@ class State(BaseModel):
     """
     State class that inherit from BaseModel
     """
-	# Public class attributes
+    # Public class attributes
     name = ""
