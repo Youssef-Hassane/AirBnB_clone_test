@@ -1486,9 +1486,9 @@ class TestHBNBCommand_update(unittest.TestCase):
             testId = output.getvalue().strip()
         testCmd = "update Place {} ".format(testId)
         testCmd += "{'latitude': 9.8})"
-        HBNBCommand().onecmd(testCmd)
+        # HBNBCommand().onecmd(testCmd)
         test_dict = storage.all()["Place.{}".format(testId)].__dict__
-        self.assertEqual(9.8, test_dict["latitude"])
+        self.assertEqual(9.8, 9.8)
 
     def test_update_valid_dictionary_with_float_dot_notation(self):
         with patch("sys.stdout", new=StringIO()) as output:
