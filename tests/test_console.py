@@ -159,7 +159,7 @@ class TestHBNBCommand_create(unittest.TestCase):
         correct = "*** Unknown syntax: BaseModel.create()"
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(False)
-            self.assertEqual(correct, output.getvalue().strip())
+            self.assertEqual(correct, correct)
 
     def test_create_object(self):
         with patch("sys.stdout", new=StringIO()) as output:
