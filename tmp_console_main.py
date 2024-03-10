@@ -218,28 +218,18 @@ class HBNBCommand(cmd.Cmd):
         """
         Retrieves the number of instances of a class
         """
-        # Check if class name is provided
         if not arg:
             print("** class name missing **")
             return
-
-        # Split the class name from the arguments
         class_name = arg.split()[0]
-
-        # Check if class exists
         if class_name not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return
-
-        # Count the number of instances by iterating over all objects
-        # and counting those with the same class name
         count = sum(
             1 
             for obj in storage.all().values()
-            # Check if object's class name matches the class name
             if type(obj).__name__ == class_name
         )
-        # Print the count
         print(count)
 
 #    def precmd(self, user_input):
@@ -286,20 +276,20 @@ class HBNBCommand(cmd.Cmd):
             "update": self.do_update
         }
         # Parse the line to extract method, class and args
-
+        
         # Match the line with the given regular expression
         matches = regularExpression.findall("(.*)\.(.*)\((.*)\)", line)
-
+        
         # If the line matches and has at least 2 groups
         if matches and len(matches[0]) >= 2:
             class_name, method_name, *args_str = matches[0]
-
+            
             # If the method is "update" and args_str is not empty and ends with '}'
             if method_name == "update" and args_str and args_str[0] and args_str[0][-1] == '}':
                 # Split args_str by comma and get the updated_id and updated_dict_str
                 id_dict_list = args_str[0].split(',', 1)
                 updated_id, updated_dict_str = id_dict_list
-
+                
                 # Load the json string into a dictionary and update the attributes
                 updated_dict = json.loads(updated_dict_str.replace("'",'"'))
                 for key, value in updated_dict.items():
@@ -319,7 +309,7 @@ class HBNBCommand(cmd.Cmd):
             # Execute the corresponding method and return its result
             arg = " ".join([class_name, *args]).rstrip(' ')
             return method_map[method_name](arg)
-
+        
         # If the line doesn't match the regular expression, print an error message
         print("*** Unknown syntax: {}".format(line))
         return False

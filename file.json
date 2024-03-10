@@ -1,1 +1,1 @@
-{"BaseModel.9643f0fa-8008-4941-a14a-612c06c14b55": {"id": "9643f0fa-8008-4941-a14a-612c06c14b55", "created_at": "2024-03-10T06:24:08.617454", "updated_at": "2024-03-10T06:24:08.618143", "$from_dict$": "{'attribute_name_dict':", "__class__": "BaseModel"}}
+{"Review.b391db86-3f89-464c-8e4f-9e8b2ccf2cf0": {"id": "b391db86-3f89-464c-8e4f-9e8b2ccf2cf0", "created_at": "2024-03-10T14:40:32.693831", "updated_at": "2024-03-10T14:40:32.695294", "attribute_name_dict": "string_value_dict", "attribute_name_dict_2": 333, "__class__": "Review"}}
