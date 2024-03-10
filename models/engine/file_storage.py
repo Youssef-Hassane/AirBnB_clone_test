@@ -32,7 +32,7 @@ class FileStorage:
         for key, obj in self.__objects.items():
             serialized_objs[key] = obj.to_dict()
         with open(self.__file_path, 'w') as file:
-            json.dump(serialized_objs, file)
+            json.dump(serialized_objs, file, indent=4)
 
     def reload(self):
         from models.base_model import BaseModel
