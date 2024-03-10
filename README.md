@@ -12,7 +12,7 @@ The console allows for the user to interact with the system in a more human-frie
 ```
 Ⓜ️ 0. README, AUTHORS:				COMPLETED ✅	
 Ⓜ️ 1. Be pycodestyle compliant: 		COMPLETED ✅	
-Ⓜ️ 2. Unittests: 				NOT STARTED ❌
+Ⓜ️ 2. Unittests: 				COMPLETED ✅
 Ⓜ️ 3. BaseModel: 				COMPLETED ✅	
 Ⓜ️ 4. Create BaseModel from dictionary:		COMPLETED ✅	
 Ⓜ️ 5. Store first object: 			COMPLETED ✅
