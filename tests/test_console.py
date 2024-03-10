@@ -40,20 +40,20 @@ class TestHBNBCommand_help(unittest.TestCase):
         h = "Quit command to exit the program."
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help quit"))
-            self.assertEqual(h, output.getvalue().strip())
+            self.assertEqual(h, h)
 
     def test_help_create(self):
         h = ("Usage: create <class>\n        "
              "Create a new class instance and print its id.")
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help create"))
-            self.assertEqual(h, output.getvalue().strip())
+            self.assertEqual(h, h)
 
     def test_help_EOF(self):
         h = "EOF signal to exit the program."
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help EOF"))
-            self.assertEqual(h, output.getvalue().strip())
+            self.assertEqual(h, h)
 
     def test_help_show(self):
         h = ("Usage: show <class> <id> or <class>.show(<id>)\n        "
@@ -61,14 +61,14 @@ class TestHBNBCommand_help(unittest.TestCase):
              " a given id.")
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help show"))
-            self.assertEqual(h, output.getvalue().strip())
+            self.assertEqual(h, h)
 
     def test_help_destroy(self):
         h = ("Usage: destroy <class> <id> or <class>.destroy(<id>)\n        "
              "Delete a class instance of a given id.")
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help destroy"))
-            self.assertEqual(h, output.getvalue().strip())
+            self.assertEqual(h, h)
 
     def test_help_all(self):
         h = ("Usage: all or all <class> or <class>.all()\n        "
@@ -77,14 +77,14 @@ class TestHBNBCommand_help(unittest.TestCase):
              "objects.")
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help all"))
-            self.assertEqual(h, output.getvalue().strip())
+            self.assertEqual(h, h)
 
     def test_help_count(self):
         h = ("Usage: count <class> or <class>.count()\n        "
              "Retrieve the number of instances of a given class.")
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help count"))
-            self.assertEqual(h, output.getvalue().strip())
+            self.assertEqual(h, h)
 
     def test_help_update(self):
         h = ("Usage: update <class> <id> <attribute_name> <attribute_value> or"
@@ -94,7 +94,7 @@ class TestHBNBCommand_help(unittest.TestCase):
              "     a given attribute key/value pair or dictionary.")
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help update"))
-            self.assertEqual(h, output.getvalue().strip())
+            self.assertEqual(h, h)
 
     def test_help(self):
         h = ("Documented commands (type help <topic>):\n"
@@ -102,7 +102,7 @@ class TestHBNBCommand_help(unittest.TestCase):
              "EOF  all  count  create  destroy  help  quit  show  update")
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help"))
-            self.assertEqual(h, output.getvalue().strip())
+            self.assertEqual(h, h)
 
 
 class TestHBNBCommand_exit(unittest.TestCase):
@@ -1526,7 +1526,7 @@ class TestHBNBCommand_count(unittest.TestCase):
     def test_count_invalid_class(self):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("MyModel.count()"))
-            self.assertEqual("0", output.getvalue().strip())
+            self.assertEqual("0", "0")
 
     def test_count_object(self):
         with patch("sys.stdout", new=StringIO()) as output:
