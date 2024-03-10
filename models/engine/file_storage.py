@@ -47,7 +47,7 @@ class FileStorage:
         (only if the JSON file (__file_path) exists ; otherwise, do nothing.
         If the file doesn’t exist, no exception should be raised)
         """
-        
+
         if not isfile(FileStorage.__file_path):
             return
         with open(FileStorage.__file_path, "r") as file:
