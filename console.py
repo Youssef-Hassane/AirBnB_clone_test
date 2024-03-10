@@ -13,6 +13,7 @@ import re as regularExpression
 from datetime import datetime as TIME
 import json
 
+
 class HBNBCommand(cmd.Cmd):
     """HBNBCommand Class"""
 
@@ -156,12 +157,13 @@ class HBNBCommand(cmd.Cmd):
             if words[0] not in HBNBCommand.classes:
                 print("** class doesn't exist **")
             else:
-                # Filter instances by class name and print string representation
+                # Filter instances by class name and pr string representation
                 nl = [str(obj) for key, obj in storage.all().items()
                       if type(obj).__name__ == words[0]]
                 print(nl)
         else:
-            # If no class name is provided, print string representation of all instances
+            # If no class name is provided
+            # print string representation of all instances
             new_list = [str(obj) for key, obj in storage.all().items()]
             print(new_list)
 
@@ -176,7 +178,7 @@ class HBNBCommand(cmd.Cmd):
         if len(args) < 1:
             print("** class name missing **")
             return False
-        
+
         # if class is not in classes list, print error and return False
         className = args[0]
         if className not in HBNBCommand.classes:
@@ -234,7 +236,7 @@ class HBNBCommand(cmd.Cmd):
         # Count the number of instances by iterating over all objects
         # and counting those with the same class name
         count = sum(
-            1 
+            1
             for obj in storage.all().values()
             # Check if object's class name matches the class name
             if type(obj).__name__ == class_name
@@ -288,26 +290,30 @@ class HBNBCommand(cmd.Cmd):
         # Parse the line to extract method, class and args
 
         # Match the line with the given regular expression
-        matches = regularExpression.findall("(.*)\.(.*)\((.*)\)", line)
+        matches = regularExpression.findall(r"(.*)\.(.*)\((.*)\)", line)
 
         # If the line matches and has at least 2 groups
         if matches and len(matches[0]) >= 2:
             class_name, method_name, *args_str = matches[0]
 
-            # If the method is "update" and args_str is not empty and ends with '}'
-            if method_name == "update" and args_str and args_str[0] and args_str[0][-1] == '}':
-                # Split args_str by comma and get the updated_id and updated_dict_str
+            # If the method is "update" and
+            # args_str is not empty and ends with '}'
+            if (method_name == "update" and args_str and
+                    args_str[0] and args_str[0][-1] == '}'):
+                # Split args_str by comma and get
+                # the updated_id and updated_dict_str
                 id_dict_list = args_str[0].split(',', 1)
                 updated_id, updated_dict_str = id_dict_list
 
-                # Load the json string into a dictionary and update the attributes
-                updated_dict = json.loads(updated_dict_str.replace("'",'"'))
+                # Load the json string into a dictionary
+                # and update the attributes
+                updated_dict = json.loads(updated_dict_str.replace("'", '"'))
                 for key, value in updated_dict.items():
                     if isinstance(value, str):
                         value = f'"{value}"'
                     # Format the argument and execute the update method
                     arg = f"{class_name} {updated_id} {key} {value}"
-                    if self.do_update(arg) == False:
+                    if self.do_update(arg) is False:
                         break
                 return
             # If args_str is not empty, split it by comma and get args
@@ -320,7 +326,8 @@ class HBNBCommand(cmd.Cmd):
             arg = " ".join([class_name, *args]).rstrip(' ')
             return method_map[method_name](arg)
 
-        # If the line doesn't match the regular expression, print an error message
+        # If the line doesn't match the regular
+        # expression, print an error message
         print("*** Unknown syntax: {}".format(line))
         return False
 
